@@ -1,0 +1,182 @@
+Index: .idea/pythonProject8.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/pythonProject8.iml b/.idea/pythonProject8.iml
+new file mode 100644
+--- /dev/null	(date 1737536737461)
++++ b/.idea/pythonProject8.iml	(date 1737536737461)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/venv" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1737536737469)
++++ b/.idea/modules.xml	(date 1737536737469)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/pythonProject8.iml" filepath="$PROJECT_DIR$/.idea/pythonProject8.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1737536737484)
++++ b/.idea/misc.xml	(date 1737536737484)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Black">
++    <option name="sdkName" value="Python 3.9 (pythonProject8) (2)" />
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (pythonProject8) (2)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1737536737567)
++++ b/.idea/.gitignore	(date 1737536737567)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1737536737498)
++++ b/.idea/inspectionProfiles/profiles_settings.xml	(date 1737536737498)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+new file mode 100644
+--- /dev/null	(date 1737540141282)
++++ b/main.py	(date 1737540141282)
+@@ -0,0 +1,83 @@
++import cv2
++import matplotlib.pyplot as plt
++import numpy as np
++flags = [i for i in dir(cv2) if i.startswith('COLOR_')]
++
++nemo = cv2.imread('23793ab324a54b2af33a45eb66da0c99.jpg')
++#nemo = cv2.imread('heat-hostports-KBPS-Svt-Read (44).png')
++#nemo = cv2.imread('./1.png')
++#nemo = cv2.imread('./2.png')
++nemo = cv2.cvtColor(nemo, cv2.COLOR_BGR2RGB)
++plt.imshow(nemo)
++plt.show()
++hsv_nemo = cv2.cvtColor(nemo, cv2.COLOR_RGB2HSV)
++light_orange = (224, 0, 0)
++dark_orange = (255, 255, 255)
++mask = cv2.inRange(hsv_nemo, light_orange, dark_orange)
++result = cv2.bitwise_and(nemo, nemo, mask=mask)
++plt.subplot(1, 2, 1)
++plt.imshow(mask, cmap="gray")
++plt.subplot(1, 2, 2)
++plt.imshow(result)
++plt.show()
++
++
++
++light_white = (0, 0, 200)
++dark_white = (145, 60, 255)
++mask_white = cv2.inRange(hsv_nemo, light_white, dark_white)
++result_white = cv2.bitwise_and(nemo, nemo, mask=mask_white)
++
++plt.subplot(1, 2, 1)
++plt.imshow(mask_white, cmap="gray")
++plt.subplot(1, 2, 2)
++plt.imshow(result_white)
++plt.show()
++
++final_mask = mask + mask_white
++
++final_result = cv2.bitwise_and(nemo, nemo, mask=final_mask)
++plt.subplot(1, 2, 1)
++plt.imshow(final_mask, cmap="gray")
++plt.subplot(1, 2, 2)
++plt.imshow(final_result)
++plt.show()
++
++# import cv2
++#
++#
++# # создаем пустую функцию
++# def nothing(args): pass
++#
++#
++# # создаем окно для отображения результата и бегунки
++# cv2.namedWindow("setup")
++# cv2.createTrackbar("b1", "setup", 0, 255, nothing)
++# cv2.createTrackbar("g1", "setup", 0, 255, nothing)
++# cv2.createTrackbar("r1", "setup", 0, 255, nothing)
++# cv2.createTrackbar("b2", "setup", 255, 255, nothing)
++# cv2.createTrackbar("g2", "setup", 255, 255, nothing)
++# cv2.createTrackbar("r2", "setup", 255, 255, nothing)
++#
++# fn = "./2.png"  # путь к файлу с картинкой
++# img = cv2.imread(fn)  # загрузка изображения
++#
++# while True:
++#     r1 = cv2.getTrackbarPos('r1', 'setup')
++#     g1 = cv2.getTrackbarPos('g1', 'setup')
++#     b1 = cv2.getTrackbarPos('b1', 'setup')
++#     r2 = cv2.getTrackbarPos('r2', 'setup')
++#     g2 = cv2.getTrackbarPos('g2', 'setup')
++#     b2 = cv2.getTrackbarPos('b2', 'setup')
++#     # собираем значения из бегунков в множества
++#     min_p = (g1, b1, r1)
++#     max_p = (g2, b2, r2)
++#     # применяем фильтр, делаем бинаризацию
++#     img_g = cv2.inRange(img, min_p, max_p)
++#
++#     cv2.imshow('img', img_g)
++#
++#     if cv2.waitKey(33) & 0xFF == ord('q'):
++#         break
++#
++# cv2.destroyAllWindows()
+\ No newline at end of file
