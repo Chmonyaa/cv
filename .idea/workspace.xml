@@ -4,27 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f22832b9-cbe6-4a69-9024-7d1318986d49" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes/23793ab324a54b2af33a45eb66da0c99.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes/heat-hostports-KBPS-Svt-Read (44).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/belozheltyi-fon-v-polosku-75-foto-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradient.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/heat-hostports-KBPS-Svt-Read (54).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maxresdefault.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    <list default="true" id="f22832b9-cbe6-4a69-9024-7d1318986d49" name="Changes" comment="Start project">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,11 +38,12 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/olya/PycharmProjects/pythonProject8&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/olya/PycharmProjects/diplom&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -71,6 +55,15 @@
       <option name="presentableId" value="Default" />
       <updated>1737535010036</updated>
     </task>
+    <task id="LOCAL-00001" summary="Start project">
+      <option name="closed" value="true" />
+      <created>1737658982752</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737658982752</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,5 +88,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Start project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start project" />
   </component>
 </project>

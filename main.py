@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 img = cv2.imread('./heat-hostports-KBPS-Svt-Read (31).png')
-#img = cv2.imread('./3.jpg')
+# img = cv2.imread('./3.jpg')
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 img = img[25:275, 200:675]
 
@@ -64,29 +64,41 @@ linesP = cv2.HoughLinesP(dst_img, 1, np.pi / 180, 10, None, 20, 10)
 
 for i in range(0, len(linesP)):
     lin = linesP[i][0]
-    x1, y1, x2, y2 = lin[0]
+
     cv2.line(result, (lin[0], lin[1]), (lin[2], lin[3]), (0, 0, 255), 3, cv2.LINE_AA)
 cv2.imshow("Image with lines", result)
 
+# Инициализация флагов
 has_vertical = False
 has_horizontal = False
 has_diagonal = False
 has_diagonal_2 = False
 
 if linesP is not None:
-    for lin in linesP:
-
-
+    for i in range(0, len(linesP)):
+        lin = linesP[i][0]
+        x1, y1, x2, y2 = lin
         angle = np.arctan2(y2 - y1, x2 - x1) * 180 / np.pi
         if -10 <= angle <= 10:
             has_horizontal = True
+            color = (0, 255, 0)
+            label = "Горизонтальная"
         elif 85 <= angle <= 95:
             has_vertical = True
-        elif 10 <= angle <= 85:
+            color = (255, 0, 0)
+            label = "Вертикальная"
+        elif 10 < angle < 85:
             has_diagonal = True
-        elif -10 <= angle <= -85:
-            has_diagonal_2: True
+            color = (0, 0, 255)
+            label = "Диагональная"
+        elif -85 < angle < -10:
+            has_diagonal_2 = True
+            color = (255, 165, 0)
+            label = "Диагональная (противоположная)"
 
+        cv2.line(result, (x1, y1), (x2, y2), color, 3, cv2.LINE_AA)
+
+# Подсветка итогов
 result_text = ""
 if has_vertical:
     result_text += "Найдены вертикальные линии\n"
@@ -100,5 +112,7 @@ if not (has_vertical or has_horizontal or has_diagonal):
     result_text = "Линии не найдены"
 print(result_text)
 
+# Отображение результатов
+cv2.imshow("Image with lines", result)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
