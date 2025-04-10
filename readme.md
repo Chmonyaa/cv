@@ -1,6 +1,7 @@
 Для сборки проекта следует ввести в консоли 2 скрипта 
 
 pip install pyinstaller
+
 pyinstaller --onefile --windowed --name "ImageProcessor" --add-data "contour_info.txt;." menu.py
 
 Проект состоит из 3 частей
